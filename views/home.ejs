@@ -1,0 +1,23 @@
+<%- include("partials/header") -%>
+    <h1>Home</h1>
+    <p>
+        <%= homeStartingContent %>
+    </p>
+    <% Blogs.forEach(blog=>{ %>
+        <h3>
+            <%= blog.BlogTitle %>
+        </h3>
+        <p>
+            <% if(blog.BlogPost.length>100){ %>
+                <%- blog.BlogPost.slice(0,100)+"..." %>
+                <a href="/posts/<%= blog._id %>">read more</a>
+            <% }else{ %>
+                <%- blog.BlogPost %>
+            <% } %>
+            
+        </p>
+      <% }) %>
+    
+<%- include("partials/footer") -%>
+
+
